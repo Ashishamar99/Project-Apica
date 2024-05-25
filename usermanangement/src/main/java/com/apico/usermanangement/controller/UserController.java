@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
+@RequestMapping("${api.rootpath}")
 public class UserController {
 
     @Autowired
     UserService userService;
 
-    @GetMapping(path = "${api.rootpath}")
+    @GetMapping
     @Operation(description = "Sends a string just to test if end points of this server are reachable or not.")
     @ApiResponse(responseCode = "200")
     public String testUserService(){
