@@ -55,11 +55,10 @@ This progression allows for incremental development and ensures that each level 
 
 ### Steps to Run - 
 - Clone the main branch.
-- Install postgreSQL and launch pg admin tool.
-- Give the database username and password in the application.properties file.
-- Run Kafka using the command ```docker compose up -d```
-- Now, import the project in Intellij or run mvn package and run the jar files.
-- Import the postman-collection.json file in postman.
-- Hit the endpoints to test out the application.
+- Open command prompt or terminal in the cloned directory.
+- Run the command ```docker compose up -d```
+- Once all the containers are up and running, import the postman collection which is included in the repo.
+- Hit the APIs to test out the entire system.
+- #### Important Note - all the services, kafka, and the db are all port forwarded to the host. So we can take a look at the internals as is from the host.
 
 ---
