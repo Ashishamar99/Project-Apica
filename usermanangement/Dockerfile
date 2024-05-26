@@ -16,7 +16,7 @@ COPY src /app/src
 RUN chmod +x /app/mvnw
 
 ENV SPRING_DATASOURCE_URL jdbc:postgresql://host.docker.internal:5432/localpgdb
-
+ENV KAFKA_ADVERTISED_HOST_NAME host.docker.internal:9092
 # Package the application
 RUN ./mvnw package
 
