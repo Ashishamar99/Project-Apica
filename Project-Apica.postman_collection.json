@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "d8ef1332-6f12-44f0-b4c3-7c105137a4c2",
+		"name": "Project-Apica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31401226",
+		"_collection_link": "https://www.postman.com/security-saganist-42391080/workspace/my-workspace/collection/31401226-d8ef1332-6f12-44f0-b4c3-7c105137a4c2?action=share&source=collection_link&creator=31401226"
+	},
+	"item": [
+		{
+			"name": "User Management Swagger UI",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9080/swagger-ui.html",
+					"host": [
+						"localhost"
+					],
+					"port": "9080",
+					"path": [
+						"swagger-ui.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Management Test Server",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9080/api/v1/user",
+					"host": [
+						"localhost"
+					],
+					"port": "9080",
+					"path": [
+						"api",
+						"v1",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Management Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"dexter\",\r\n  \"password\": \"dexter_rocks\",\r\n  \"mailId\": \"dexter_rocks@gmail.com\",\r\n  \"phNo\": \"0987654321\",\r\n  \"role\": \"USER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9080/api/v1/user/registerUser",
+					"host": [
+						"localhost"
+					],
+					"port": "9080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"registerUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Management Get User By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9080/api/v1/user/getUserById?id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "9080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"getUserById"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Journal Management Get All Journals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9081/api/v1/journal/all",
+					"host": [
+						"localhost"
+					],
+					"port": "9081",
+					"path": [
+						"api",
+						"v1",
+						"journal",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Journal Management Get All Public Journals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9081/api/v1/journal/public",
+					"host": [
+						"localhost"
+					],
+					"port": "9081",
+					"path": [
+						"api",
+						"v1",
+						"journal",
+						"public"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Management Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9080/api/v1/user/all",
+					"host": [
+						"localhost"
+					],
+					"port": "9080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Journal Management Test Server",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9081/api/v1/journal",
+					"host": [
+						"localhost"
+					],
+					"port": "9081",
+					"path": [
+						"api",
+						"v1",
+						"journal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Journal Management Swagger UI",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9081/swagger-ui.html",
+					"host": [
+						"localhost"
+					],
+					"port": "9081",
+					"path": [
+						"swagger-ui.html"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

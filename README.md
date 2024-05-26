@@ -52,3 +52,14 @@ Since the [assignment](https://github.com/Ashishamar99/Project-Apica/blob/main/J
 This progression allows for incremental development and ensures that each level builds upon the previous one, ultimately leading to a fully functional system meeting the specified requirements.
 
 ---
+
+### Steps to Run - 
+- Clone the main branch.
+- Install postgreSQL and launch pg admin tool.
+- Give the database username and password in the application.properties file.
+- Run Kafka using the command ```docker compose up -d```
+- Now, import the project in Intellij or run mvn package and run the jar files.
+- Import the postman-collection.json file in postman.
+- Hit the endpoints to test out the application.
+
+---
