@@ -28,7 +28,7 @@ public class UserService {
         users.add(user);
         userMessagePublisher.publishUserEvent(JournalWrapper.builder()
                         .userId(user.getId())
-                        .journalType(JOURNAL_TYPE.RESISTRATION)
+                        .journalType(JOURNAL_TYPE.REGISTRATION)
                         .message(String.format(USER_REGISTRATION_MESSAGE, user.getId()))
                 .build());
         return user;
