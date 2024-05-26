@@ -21,12 +21,13 @@ public class UserMessagePublisher {
     @Value("${kafka.topic.name}")
     private String topicName;
 
-    public void publishUserEvent(JournalWrapper journalWrapper) {
+    public void publishUserEvent(JournalWrapper journalWrapper) throws RuntimeException {
         log.debug("publishing journal event to topic with id:: {}", journalWrapper.getUserId());
         CompletableFuture<SendResult<String, Object>> future = template.send(topicName, journalWrapper);
         future.whenComplete((result, exception) -> {
            if(Optional.ofNullable(exception).isPresent()){
                log.error("Unable to publish message with user id:: {}, Error Message:: {}", journalWrapper.getUserId(), exception.getMessage());
+               throw new RuntimeException("Unable to publish message with user id::" + journalWrapper.getUserId(), exception);
            }
            else {
                log.debug("Successfully published message with user id:: {}, with offset:: {}", journalWrapper.getUserId(), result.getRecordMetadata().offset());

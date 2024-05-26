@@ -1,5 +1,6 @@
 package com.apico.usermanangement.service;
 
+import com.apico.usermanangement.dao.UserManagementRepository;
 import com.apico.usermanangement.model.User;
 import com.apico.usermanangement.wrapper.JournalWrapper;
 import lombok.extern.slf4j.Slf4j;
@@ -8,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.apico.usermanangement.constants.UserManagementConstants.JOURNAL_TYPE;
@@ -21,25 +21,28 @@ public class UserService {
     @Autowired
     UserMessagePublisher userMessagePublisher;
 
-    List<User> users = new ArrayList<>();
+    @Autowired
+    UserManagementRepository userManagementRepository;
 
     public User registerUser(User user) {
         log.debug("inside register user service with id:: {}", user.getId());
-        users.add(user);
+        User createdUser = userManagementRepository.save(user);
         userMessagePublisher.publishUserEvent(JournalWrapper.builder()
-                        .userId(user.getId())
+                        .userId(String.valueOf(createdUser.getId()))
                         .journalType(JOURNAL_TYPE.REGISTRATION)
-                        .message(String.format(USER_REGISTRATION_MESSAGE, user.getId()))
+                        .message(String.format(USER_REGISTRATION_MESSAGE, createdUser.getId()))
                 .build());
-        return user;
+        return createdUser;
     }
 
     public User getUserById(String userId) {
-        return users
-                .stream()
-                .filter(user -> user.getId().equals(userId))
-                .findFirst()
+        return userManagementRepository
+                .findById(userId)
                 .orElseThrow(() ->
                         new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with given id:: " + userId));
+    }
+
+    public List<User> getAllUsers() {
+        return userManagementRepository.findAll();
     }
 }

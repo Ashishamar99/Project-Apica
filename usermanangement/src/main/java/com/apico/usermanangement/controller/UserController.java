@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Slf4j
 @RestController
 @RequestMapping("${api.rootpath}")
@@ -46,5 +48,13 @@ public class UserController {
     public ResponseEntity<User> getUserById(@RequestParam(name = "id") String userId){
         log.debug("inside get user by id function with:: {}", userId);
         return new ResponseEntity<>(userService.getUserById(userId), HttpStatus.FOUND);
+    }
+
+    @GetMapping(path = "${api.getAllUsers}")
+    @Operation(description = "Fetches all the users if role is admin. Else throws a forbidden exception.")
+    @ApiResponse(responseCode = "200")
+    //TODO:: Accept the role in the header in the form of JWT token.
+    public List<User> getAllJournals(){
+        return userService.getAllUsers();
     }
 }

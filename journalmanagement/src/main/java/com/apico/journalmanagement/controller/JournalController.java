@@ -37,6 +37,7 @@ public class JournalController {
     @GetMapping(path = "${api.getAllJournals}")
     @Operation(description = "Fetches all the journals if role is admin. Else throws a forbidden exception.")
     @ApiResponse(responseCode = "200")
+    //TODO:: Accept the role in the header in the form of JWT token.
     public List<Journal> getAllJournals(){
         return journalService.getAllJournals();
     }
