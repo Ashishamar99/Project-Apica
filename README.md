@@ -56,7 +56,7 @@ This progression allows for incremental development and ensures that each level 
 ### Steps to Run - 
 - Clone the main branch.
 - Open command prompt or terminal in the cloned directory.
-- Run the command ```docker compose up -d```
+- Run the command ```docker compose up --build -d```
 - Once all the containers are up and running, import the postman collection which is included in the repo.
 - Hit the APIs to test out the entire system.
 - #### Important Note - all the services, kafka, and the db are all port forwarded to the host. So we can take a look at the internals as is from the host.
